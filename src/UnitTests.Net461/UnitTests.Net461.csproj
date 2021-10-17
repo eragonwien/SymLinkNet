@@ -8,6 +8,6 @@
      <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
    </ItemGroup>
    <ItemGroup>
-     <ProjectReference Include="..\HoangSonNguyen.SymbolicLinkHelper\HoangSonNguyen.SymbolicLinkHelper.csproj" />
+     <ProjectReference Include="..\HoangSonNguyen.SymbolicLinkHelper\HoangSonNguyen.IO.Helpers.csproj" />
    </ItemGroup>
 </Project>
