@@ -1,4 +1,4 @@
-﻿using Eragonwien.SymLinkNet.Eragonwien.SymLinkNet;
+﻿using Eragonwien.SymLinkNet;
 using NUnit.Framework;
 
 namespace UnitTests.Net461
