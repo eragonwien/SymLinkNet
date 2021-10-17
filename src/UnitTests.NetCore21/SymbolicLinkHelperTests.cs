@@ -1,4 +1,4 @@
-using HoangSonNguyen.IO.Helpers;
+using Eragonwien.SymLinkNet;
 using NUnit.Framework;
 
 namespace UnitTests.NetCore21
@@ -9,37 +9,19 @@ namespace UnitTests.NetCore21
         [Test]
         public void CreateSymbolicLinkTest()
         {
-            SymbolicLinkHelper.Directory.CreateSymbolicLink("", "");
+            SymLink.CreateSymbolicLink("", "");
         }
 
         [Test]
         public void GetSymbolicLinkTargetPathTest()
         {
-            SymbolicLinkHelper.Directory.GetSymbolicLinkTargetPath("");
+            SymLink.GetRealPath("");
         }
 
         [Test]
         public void IsSymbolicLinkTest()
         {
-            SymbolicLinkHelper.Directory.IsSymbolicLink("");
-        }
-
-        [Test]
-        public void FileCreateSymbolicLinkTest()
-        {
-            SymbolicLinkHelper.File.CreateSymbolicLink("", "");
-        }
-
-        [Test]
-        public void FileGetSymbolicLinkTargetPathTest()
-        {
-            SymbolicLinkHelper.File.GetSymbolicLinkTargetPath("");
-        }
-
-        [Test]
-        public void FileIsSymbolicLinkTest()
-        {
-            SymbolicLinkHelper.File.IsSymbolicLink("");
+            SymLink.IsSymbolicLink("");
         }
     }
 }

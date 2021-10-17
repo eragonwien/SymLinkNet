@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.NetCore21", "Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Net5", "UnitTests.Net5\UnitTests.Net5.csproj", "{E4309F73-A3DE-4E0A-BFC3-E9F56536512D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolicLinkHelper", "SymbolicLinkHelper\SymbolicLinkHelper.csproj", "{4171D285-A7AF-4354-BE08-1374CEBACEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eragonwien.SymLinkNet", "SymbolicLinkHelper\Eragonwien.SymLinkNet.csproj", "{4171D285-A7AF-4354-BE08-1374CEBACEAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
