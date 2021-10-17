@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.NetCore21", "Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Net5", "UnitTests.Net5\UnitTests.Net5.csproj", "{E4309F73-A3DE-4E0A-BFC3-E9F56536512D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoangSonNguyen.IO.Helpers", "HoangSonNguyen.SymbolicLinkHelper\HoangSonNguyen.IO.Helpers.csproj", "{108F7661-0816-4ED4-80E6-2F6287230E52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolicLinkHelper", "SymbolicLinkHelper\SymbolicLinkHelper.csproj", "{4171D285-A7AF-4354-BE08-1374CEBACEAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{E4309F73-A3DE-4E0A-BFC3-E9F56536512D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4309F73-A3DE-4E0A-BFC3-E9F56536512D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4309F73-A3DE-4E0A-BFC3-E9F56536512D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{108F7661-0816-4ED4-80E6-2F6287230E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{108F7661-0816-4ED4-80E6-2F6287230E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{108F7661-0816-4ED4-80E6-2F6287230E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{108F7661-0816-4ED4-80E6-2F6287230E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4171D285-A7AF-4354-BE08-1374CEBACEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4171D285-A7AF-4354-BE08-1374CEBACEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4171D285-A7AF-4354-BE08-1374CEBACEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4171D285-A7AF-4354-BE08-1374CEBACEAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
