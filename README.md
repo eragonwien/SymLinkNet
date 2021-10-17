@@ -1,2 +1,3 @@
-# HoangSonNguyen.IO.SymbolicLink
-A helper service for creating and deleting symbolic link in .NET 5
+# HoangSonNguyen.SymbolicLinkHelper
+
+Nuget for creating and deleting symbolic link in Windows
