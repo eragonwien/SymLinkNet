@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using SymLinkNet.Extensions;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace UnitTests.Net461
+namespace UnitTests.NetCore31
 {
     [TestFixture]
     public class SymbolicLinkHelperTests
