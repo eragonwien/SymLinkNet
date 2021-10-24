@@ -121,7 +121,7 @@ namespace SymLinkNet.Services
         private void EnsureOsIsWindows()
         {
             if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                throw new NotSupportedException($"This method supports Windows only");
+                throw new PlatformNotSupportedException($"This method supports Windows only");
         }
 
         private void EnsureFileOrDirectoryExists(string path)
