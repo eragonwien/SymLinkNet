@@ -3,21 +3,18 @@ using System.Runtime.InteropServices;
 
 namespace SymLinkNet.Services
 {
-    public interface ISymLinkFactory
+    public class SymLinkFactory
     {
-        ISymLink GetInstance();
-    }
-
-    public class SymLinkFactory : ISymLinkFactory
-    {
-        public ISymLink GetInstance()
+        public static ISymLink GetInstance()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 return new WindowsSymLink();
             }
 
-            throw new NotSupportedException(RuntimeInformation.OSDescription);
+            throw new PlatformNotSupportedException(RuntimeInformation.OSDescription);
         }
+
+        public static ISymLink GetInstance(IServiceProvider sp) => GetInstance();
     }
 }

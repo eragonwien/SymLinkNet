@@ -22,7 +22,7 @@ namespace SymLinkNet.Services
                 return ExecuteLinuxCommand(cmdText);
             }
 
-            throw new NotSupportedException($"{RuntimeInformation.OSDescription} is not supported");
+            throw new PlatformNotSupportedException($"{RuntimeInformation.OSDescription} is not supported");
         }
 
         private static CommandLineResult ExecuteLinuxCommand(string cmdText)
