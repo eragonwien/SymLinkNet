@@ -15,7 +15,7 @@ namespace SymLinkNet
         {
             var symLink = GetInstance();
 
-            return symLink.TryCreateSymbolicLink(linkPath, targetPath);
+            return symLink.TryCreateSymbolicLink(linkPath, targetPath, overwrite);
         }
 
         public static string GetRealPath(string linkPath)

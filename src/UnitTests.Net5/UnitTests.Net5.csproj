@@ -14,7 +14,7 @@
    </ItemGroup>
 
    <ItemGroup>
-     <ProjectReference Include="..\UnitTests.Net461\UnitTests.Net461.csproj" />
+     <ProjectReference Include="..\SymLinkNet\SymLinkNet.csproj" />
    </ItemGroup>
 
 </Project>
