@@ -8,7 +8,7 @@ using System.Security.Principal;
 
 namespace SymLinkNet.Services
 {
-    public class WindowsSymLink : ISymLink
+    public class WindowsSymLink : BaseSymLink, ISymLink
     {
         #region WinAPI
 
@@ -34,7 +34,7 @@ namespace SymLinkNet.Services
 
         public void CreateSymbolicLink(string linkPath, string targetPath, bool overwrite = false)
         {
-            EnsureOsIsWindows();
+            EnsureOsIsSupported(OSPlatform.Windows);
             EnsureFileOrDirectoryExists(targetPath);
 
             if (overwrite)
@@ -106,36 +106,6 @@ namespace SymLinkNet.Services
             return File.GetAttributes(path).HasFlag(FileAttributes.ReparsePoint);
         }
 
-        private void DeleteSymbolicLink(string linkPath)
-        {
-            if (Directory.Exists(linkPath))
-                Directory.Delete(linkPath, true);
-
-            if (File.Exists(linkPath))
-                File.Delete(linkPath);
-        }
-
-        private bool FileOrDirectoryExists(string path)
-            => Directory.Exists(path) || File.Exists(path);
-
-        private void EnsureOsIsWindows()
-        {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                throw new PlatformNotSupportedException($"This method supports Windows only");
-        }
-
-        private void EnsureFileOrDirectoryExists(string path)
-        {
-            if (!FileOrDirectoryExists(path))
-                throw new IOException($"File or directory at {path} not found");
-        }
-
-        private void EnsureFileOrDirectoryNotExists(string path)
-        {
-            if (FileOrDirectoryExists(path))
-                throw new IOException($"File or directory already exists at {path}");
-        }
-
         private void EnsureAdminRights()
         {
             using var winIdentity = WindowsIdentity.GetCurrent();
@@ -144,10 +114,5 @@ namespace SymLinkNet.Services
             if (!windowPrincipal.IsInRole(WindowsBuiltInRole.Administrator))
                 throw new UnauthorizedAccessException("The program requires administration permissions");
         }
-    }
-
-    public sealed class LinuxSymLink
-    {
-
     }
 }

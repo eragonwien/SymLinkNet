@@ -12,6 +12,11 @@ namespace SymLinkNet.Services
                 return new WindowsSymLink();
             }
 
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return new LinuxSymLink();
+            }
+
             throw new PlatformNotSupportedException(RuntimeInformation.OSDescription);
         }
 

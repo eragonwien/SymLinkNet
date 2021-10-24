@@ -5,7 +5,7 @@ namespace SymLinkNet.Models
 {
     public sealed class CommandLineResult
     {
-        public bool Succeed { get; set; }
+        public bool Succeed => Exception != null;
         public string Output { get; set; }
         public int ExitCode { get; set; }
         public Exception Exception { get; set; }
@@ -16,17 +16,21 @@ namespace SymLinkNet.Models
 
             return new CommandLineResult
             {
-                Succeed = true,
                 Output = process.StandardOutput.ReadToEnd(),
                 ExitCode = process.ExitCode,
             };
+        }
+
+        public void EnsureSuccess()
+        {
+            if (!Succeed)
+                throw Exception;
         }
 
         public static CommandLineResult Error(Exception exception)
         {
             return new CommandLineResult
             {
-                Succeed = false,
                 Output = exception.Message,
                 Exception = exception
             };

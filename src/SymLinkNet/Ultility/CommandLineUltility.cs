@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace SymLinkNet.Services
+namespace SymLinkNet.Ultility
 {
     public static class CommandLineUltility
     {
@@ -27,7 +27,27 @@ namespace SymLinkNet.Services
 
         private static CommandLineResult ExecuteLinuxCommand(string cmdText)
         {
-            throw new NotImplementedException();
+            if (cmdText is null) throw new ArgumentNullException(nameof(cmdText));
+
+            try
+            {
+                using var process = new Process();
+
+                process.StartInfo.FileName = "/bin/bash";
+                process.StartInfo.Arguments = $"-c \"{cmdText}\"";
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+
+                process.Start();
+                process.WaitForExit();
+
+                return CommandLineResult.Success(process);
+            }
+            catch (Exception ex)
+            {
+                return CommandLineResult.Error(ex);
+            }
         }
 
         private static CommandLineResult ExecuteWindowsCommand(string cmdText)
