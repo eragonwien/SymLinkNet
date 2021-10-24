@@ -32,6 +32,6 @@ namespace SymLinkNet
             return symLink.IsSymbolicLink(linkPath);
         }
 
-        private static ISymLink GetInstance() => new SymLinkFactory().GetInstance();
+        private static ISymLink GetInstance() => SymLinkFactory.GetInstance();
     }
 }
