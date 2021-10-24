@@ -42,10 +42,7 @@ namespace SymLinkNet.Services
 
             EnsureFileOrDirectoryNotExists(linkPath);
 
-            if (!HasAdminRights())
-            {
-                throw new UnauthorizedAccessException("The program requires administration permissions");
-            }
+            EnsureAdminRights();
 
             if (Directory.Exists(targetPath) &&
                 CreateSymbolicLink(linkPath, targetPath, SymbolicLinkType.Directory))
@@ -73,6 +70,9 @@ namespace SymLinkNet.Services
 
         public string GetRealPath(string linkPath)
         {
+            EnsureFileOrDirectoryExists(linkPath);
+            EnsureAdminRights();
+
             DirectoryInfo symlink = new DirectoryInfo(linkPath);
             SafeFileHandle directoryHandle = CreateFile(
                 symlink.FullName,
@@ -136,12 +136,18 @@ namespace SymLinkNet.Services
                 throw new IOException($"File or directory already exists at {path}");
         }
 
-        private bool HasAdminRights()
+        private void EnsureAdminRights()
         {
             using var winIdentity = WindowsIdentity.GetCurrent();
             var windowPrincipal = new WindowsPrincipal(winIdentity);
 
-            return windowPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
+            if (!windowPrincipal.IsInRole(WindowsBuiltInRole.Administrator))
+                throw new UnauthorizedAccessException("The program requires administration permissions");
         }
+    }
+
+    public sealed class LinuxSymLink
+    {
+
     }
 }
