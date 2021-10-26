@@ -32,11 +32,6 @@ namespace SymLinkNet.Services
             return cmd.Output;
         }
 
-        public bool IsSymbolicLink(string linkPath)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public bool TryCreateSymbolicLink(string linkPath, string targetPath, bool overwrite = false)
         {
             try
@@ -44,7 +39,7 @@ namespace SymLinkNet.Services
                 CreateSymbolicLink(linkPath, targetPath, overwrite);
                 return true;
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return false;
             }

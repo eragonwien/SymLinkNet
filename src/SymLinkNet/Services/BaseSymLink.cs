@@ -36,5 +36,12 @@ namespace SymLinkNet.Services
                 File.Delete(linkPath);
         }
 
+        public virtual bool IsSymbolicLink(string path)
+        {
+            if (!FileOrDirectoryExists(path))
+                return false;
+
+            return File.GetAttributes(path).HasFlag(FileAttributes.ReparsePoint);
+        }
     }
 }

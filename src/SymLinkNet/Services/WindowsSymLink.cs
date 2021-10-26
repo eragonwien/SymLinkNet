@@ -98,14 +98,6 @@ namespace SymLinkNet.Services
             return result.ToString();
         }
 
-        public bool IsSymbolicLink(string path)
-        {
-            if (!FileOrDirectoryExists(path))
-                return false;
-
-            return File.GetAttributes(path).HasFlag(FileAttributes.ReparsePoint);
-        }
-
         private void EnsureAdminRights()
         {
             using var winIdentity = WindowsIdentity.GetCurrent();
